@@ -4,25 +4,28 @@ import Image from "next/image";
 import image from "@/public/images/marishka-tsiklauri-xIkqIhBPlV4-unsplash.jpg";
 import { useEffect, useState } from "react";
 import { ArtWorkType } from "@/types/types";
+import { ArtWorkCard } from "@/components/ArtWorkCard";
 
 export default function Home() {
-
   // artwork state
-  const [artWork, setArtWork] = useState<ArtWorkType[] | null>([])
+  const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>([]);
 
   // fetching the artworks
   const getArtWorks = async () => {
     // using the fetch api
-    const response = await fetch("https://api.artic.edu/api/v1/artworks", {
-      method: "GET",
-    });
+    const response = await fetch(
+      "https://api.artic.edu/api/v1/artworks?page=1&limit=10",
+      {
+        method: "GET",
+      }
+    );
 
     // passing it to a data variable
-    const data = await response.json()
+    const data = await response.json();
     // logging the response
     //console.log(data.data);
     // setting the data in the state
-    setArtWork(data.data)
+    setArtWorks(data.data);
   };
 
   // using useEffect to call the function
@@ -30,7 +33,7 @@ export default function Home() {
     getArtWorks();
   }, []);
 
-  //console.log(artWork)
+  console.log(artWorks);
   return (
     <div className="bg-[#113f67] min-h-screen">
       {/* home page hero  */}
@@ -60,7 +63,23 @@ export default function Home() {
         </div>
       </div>
       {/* carousel */}
-      <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10"></div>
+      <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10">
+        {/* mapping through artworks array */}
+        {artWorks?.map((art, index) => (
+          <div key={index} className="carousel-item">
+            {/* passing props to each card  */}
+            <ArtWorkCard
+              image_id={art.image_id}
+              artist_display={art.artist_display}
+              artist_title={art.artist_title}
+              artwork_type_title={art.artwork_type_title}
+              title={art.title}
+              date_display={art.date_display}
+              
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
