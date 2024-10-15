@@ -31,7 +31,7 @@ export type ArtWorkType = {
   place_of_origin:string
   provenance_text:string
   publication_history:string
-  
+  title:string
 };
 
 
@@ -43,3 +43,12 @@ export type ColorType = {
     s:number,
 
 }
+
+export type ArtWorkCardType = {
+  image_id : string
+  artist_display : string
+  artist_title : string
+  artwork_type_title : string
+  title : string
+  date_display : string
+};
