@@ -1,10 +1,20 @@
+"use client"
+
+// importing the color pallete svg 
+import { Palette } from "@phosphor-icons/react";
 import React from "react";
 
 export const NavBar = () => {
   return (
     <div className="navbar bg-[#113f67]">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl text-slate-100 ">Art Explorer</a>
+        <a className="btn btn-ghost text-xl text-slate-100">
+          Art Explorer{" "}
+          <span className="mt-1" >
+            {" "}
+            <Palette size={27} weight="bold" />{" "}
+          </span>{" "}
+        </a>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
