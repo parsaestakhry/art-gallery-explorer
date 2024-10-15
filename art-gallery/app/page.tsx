@@ -9,7 +9,7 @@ import { ArtWorkCard } from "@/components/ArtWorkCard";
 export default function Home() {
   // artwork state
   const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>([]);
-
+  const [IIIFURL, setIIIFURL] = useState<string|null>(null)
   // fetching the artworks
   const getArtWorks = async () => {
     // using the fetch api
@@ -23,9 +23,11 @@ export default function Home() {
     // passing it to a data variable
     const data = await response.json();
     // logging the response
-    //console.log(data.data);
+    //console.log(data);
     // setting the data in the state
     setArtWorks(data.data);
+    // setting the iiif url
+    setIIIFURL(data.config.iiif_url)
   };
 
   // using useEffect to call the function
@@ -33,7 +35,7 @@ export default function Home() {
     getArtWorks();
   }, []);
 
-  console.log(artWorks);
+  console.log(IIIFURL);
   return (
     <div className="bg-[#113f67] min-h-screen">
       {/* home page hero  */}
@@ -75,7 +77,7 @@ export default function Home() {
               artwork_type_title={art.artwork_type_title}
               title={art.title}
               date_display={art.date_display}
-              
+              iiif_url={IIIFURL}
             />
           </div>
         ))}
