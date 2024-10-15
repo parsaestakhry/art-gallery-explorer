@@ -65,7 +65,11 @@ export default function Home() {
         </div>
       </div>
       {/* carousel */}
+      <h2 className="text-center sm:text-6xl text-3xl my-10 font-serif text-slate-50 text-wrap ">
+        Click on each image to Learn More !
+      </h2>
       <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10 flex ">
+        
         {/* mapping through artworks array */}
         {artWorks?.map((art, index) => (
           <div key={index} className="carousel-item">
