@@ -3,12 +3,13 @@ import React from 'react'
 
 export const ArtWorkCard = ({image_id,artist_display, artist_title, artwork_type_title, title,date_display, iiif_url, image_url } : ArtWorkCardType ) => {
   //console.log(image_url)
+  
   return (
-    <div className="card lg:card-side shadow-xl bg-[#a2a8d3] rounded-lg">
-      <figure>
+    <div className="">
+      <figure >
         <img className="object-cover h-96" src={image_url} alt="Album" />
       </figure>
-      <div className="card-body ">
+      {/* <div className="card-body ">
         <h2 className="card-title">{title}</h2>
         <p>{artist_title}</p>
         <div className="font-mono">
@@ -21,7 +22,7 @@ export const ArtWorkCard = ({image_id,artist_display, artist_title, artwork_type
         <div className="card-actions justify-end">
           <button className="btn btn-primary">Look up</button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
