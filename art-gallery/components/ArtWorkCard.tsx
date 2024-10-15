@@ -1,6 +1,7 @@
+import { ArtWorkCardType, ArtWorkType } from '@/types/types';
 import React from 'react'
 
-export const ArtWorkCard = () => {
+export const ArtWorkCard = ({image_id,artist_display, artist_title, artwork_type_title, title,date_display } : ArtWorkCardType ) => {
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl">
       <figure>
