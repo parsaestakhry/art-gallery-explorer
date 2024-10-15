@@ -1,28 +1,63 @@
-import { ArtWorkCardType, ArtWorkType } from '@/types/types';
-import React from 'react'
+import { ArtWorkCardType, ArtWorkType } from "@/types/types";
+import React from "react";
 
-export const ArtWorkCard = ({image_id,artist_display, artist_title, artwork_type_title, title,date_display, iiif_url, image_url } : ArtWorkCardType ) => {
+export const ArtWorkCard = ({
+  image_id,
+  artist_display,
+  artist_title,
+  artwork_type_title,
+  title,
+  date_display,
+  iiif_url,
+  image_url,
+}: ArtWorkCardType) => {
   //console.log(image_url)
-  
+
   return (
-    <div className="">
-      <figure >
-        <img className="object-cover h-96" src={image_url} alt="Album" />
-      </figure>
-      {/* <div className="card-body ">
-        <h2 className="card-title">{title}</h2>
-        <p>{artist_title}</p>
-        <div className="font-mono">
-          <ul className="flex flex-col space-y-10 ">
-            <li>Date of Display : {date_display}</li>
-            <li>Artist Display : {artist_display}</li>
-            <li>Artwork type title : {artwork_type_title}</li>
-          </ul>
+    <>
+      <div
+        onClick={() =>
+          (
+            document.getElementById("my_modal_1") as HTMLDialogElement
+          ).showModal()
+        }
+      >
+        <figure>
+          <img
+            className="object-cover h-96 border-2 rounded-md "
+            src={image_url}
+            alt="Album"
+          />
+        </figure>
+        {/* <div className="card-body ">
+      <h2 className="card-title">{title}</h2>
+      <p>{artist_title}</p>
+      <div className="font-mono">
+        <ul className="flex flex-col space-y-10 ">
+          <li>Date of Display : {date_display}</li>
+          <li>Artist Display : {artist_display}</li>
+          <li>Artwork type title : {artwork_type_title}</li>
+        </ul>
+      </div>
+      <div className="card-actions justify-end">
+        <button className="btn btn-primary">Look up</button>
+      </div>
+    </div> */}
+      </div>
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Hello!</h3>
+          <p className="py-4">
+            Press ESC key or click the button below to close
+          </p>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
         </div>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Look up</button>
-        </div>
-      </div> */}
-    </div>
+      </dialog>
+    </>
   );
-}
+};
