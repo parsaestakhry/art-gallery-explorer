@@ -45,8 +45,12 @@ export const ArtWorkCard = ({
     </div> */}
       </div>
       <dialog id="my_modal_1" className="modal  ">
-        <div className="modal-box bg-[#a2a8d3]  ">
-          <h3 className="font-bold text-lg">Hello!</h3>
+        <div className="modal-box bg-[#a2a8d3] text-slate-700 font-serif space-y-5 ">
+          <h3 className="text-2xl ">Title : {title}</h3>
+          <h2 className="text-lg ">Artist : {artist_title}</h2>
+          <h2 className="text-lg ">Display : {artist_display}</h2>
+          <h2 className="text-lg ">Artwork Type : {artwork_type_title}</h2>
+          <h2 className="text-lg ">Date of display : {date_display}</h2>
           <p className="py-4">
             Press ESC key or click the button below to close
           </p>
