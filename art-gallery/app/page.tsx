@@ -14,7 +14,7 @@ export default function Home() {
   const getArtWorks = async () => {
     // using the fetch api
     const response = await fetch(
-      "https://api.artic.edu/api/v1/artworks?page=1&limit=10",
+      "https://api.artic.edu/api/v1/artworks?page=2&limit=10",
       {
         method: "GET",
       }
@@ -35,7 +35,7 @@ export default function Home() {
     getArtWorks();
   }, []);
 
-  console.log(IIIFURL);
+  //console.log(IIIFURL);
   return (
     <div className="bg-[#113f67] min-h-screen">
       {/* home page hero  */}
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
       </div>
       {/* carousel */}
-      <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10">
+      <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10 flex ">
         {/* mapping through artworks array */}
         {artWorks?.map((art, index) => (
           <div key={index} className="carousel-item">
@@ -78,6 +78,7 @@ export default function Home() {
               title={art.title}
               date_display={art.date_display}
               iiif_url={IIIFURL}
+              image_url={`${IIIFURL}/${art.image_id}/full/843,/0/default.jpg`}
             />
           </div>
         ))}
