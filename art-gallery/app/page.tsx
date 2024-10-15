@@ -37,7 +37,7 @@ export default function Home() {
 
   //console.log(IIIFURL);
   return (
-    <div className="bg-[#113f67] min-h-screen">
+    <div className="bg-[#113f67] min-h-screen ">
       {/* home page hero  */}
       <div
         className="hero min-h-screen"
@@ -64,10 +64,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* carousel */}
+      {/* carousel heading */}
+
       <h2 className="text-center sm:text-6xl text-3xl my-10 font-serif text-slate-50 text-wrap ">
         Click on each image to Learn More !
       </h2>
+      {/* carousel  */}
       <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10 flex ">
         
         {/* mapping through artworks array */}
