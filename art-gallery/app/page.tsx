@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import image from "@/public/images/marishka-tsiklauri-xIkqIhBPlV4-unsplash.jpg";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ArtWorkType } from "@/types/types";
 
 export default function Home() {
 
   // artwork state
-  
+  const [artWork, setArtWork] = useState<ArtWorkType[] | null>([])
 
   // fetching the artworks
   const getArtWorks = async () => {
@@ -19,13 +20,17 @@ export default function Home() {
     // passing it to a data variable
     const data = await response.json()
     // logging the response
-    console.log(data);
+    //console.log(data.data);
+    // setting the data in the state
+    setArtWork(data.data)
   };
 
   // using useEffect to call the function
   useEffect(() => {
     getArtWorks();
   }, []);
+
+  //console.log(artWork)
   return (
     <div className="bg-[#113f67] min-h-screen">
       {/* home page hero  */}
