@@ -50,7 +50,7 @@ export const ArtWorkCard = ({
 
           <p className="py-4">Press ESC key or click the button below to close</p>
           <div className="modal-action">
-            <button className="btn" onClick={closeModal}>
+            <button className="btn btn-ghost text-slate-900 text-lg" onClick={closeModal}>
               Close
             </button>
           </div>
