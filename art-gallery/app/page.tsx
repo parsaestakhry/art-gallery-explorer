@@ -85,6 +85,7 @@ export default function Home() {
               date_display={art.date_display}
               iiif_url={IIIFURL}
               image_url={`${IIIFURL}/${art.image_id}/full/843,/0/default.jpg`}
+              id={art.id}
             />
           </div>
         ))}
