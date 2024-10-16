@@ -14,7 +14,8 @@ export const ArtWorkCard = ({
 }: ArtWorkCardType) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
-
+  //console.log(image_url)
+  //console.log(image_id)
   // Function to open modal
   const openModal = () => {
     setIsModalOpen(true);
@@ -29,7 +30,7 @@ export const ArtWorkCard = ({
 
   return (
     <>
-      <div>
+      <div className="mx-5 my-5" >
         <figure>
           <img
             onClick={openModal}
