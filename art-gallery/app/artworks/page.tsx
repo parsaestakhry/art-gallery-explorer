@@ -38,10 +38,10 @@ export default function Page() {
   
   return (
     <>
-      <div className="bg-[#38598b] py-3 flex justify-center text-2xl font-serif text-slate-50 min-h-screen ">
+      <div className="bg-[#113f67] py-3 flex justify-center text-2xl font-serif text-slate-50 min-h-screen ">
         {/* artworks card  */}
         <div className="flex flex-wrap mx-10 my-10 justify-center ">
-          {artWorks?.map((art,index) => (
+          {artWorks?.map((art, index) => (
             <div key={index} className="carousel-item">
               {/* passing props to each card  */}
               <ArtWorkCard
