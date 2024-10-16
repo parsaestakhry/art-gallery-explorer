@@ -28,9 +28,11 @@ export const ArtWorkCard = ({
 
   return (
     <>
-      <div onClick={openModal}>
+      <div>
         <figure>
           <img
+            onMouseEnter={openModal}
+            onMouseLeave={closeModal}
             className="object-cover h-96 border-2 rounded-md"
             src={image_url}
             alt="Album"
@@ -40,17 +42,22 @@ export const ArtWorkCard = ({
 
       <dialog id={`my_modal_${title}`} className="modal">
         <div className="modal-box bg-[#a2a8d3] text-slate-700 font-serif space-y-5">
-            <>
-              <h3 className="text-2xl">Title: {title}</h3>
-              <h2 className="text-lg">Artist: {artist_title}</h2>
-              <h2 className="text-lg">Display: {artist_display}</h2>
-              <h2 className="text-lg">Artwork Type: {artwork_type_title}</h2>
-              <h2 className="text-lg">Date of display: {date_display}</h2>
-            </>
+          <>
+            <h3 className="text-2xl">Title: {title}</h3>
+            <h2 className="text-lg">Artist: {artist_title}</h2>
+            <h2 className="text-lg">Display: {artist_display}</h2>
+            <h2 className="text-lg">Artwork Type: {artwork_type_title}</h2>
+            <h2 className="text-lg">Date of display: {date_display}</h2>
+          </>
 
-          <p className="py-4">Press ESC key or click the button below to close</p>
+          <p className="py-4">
+            Press ESC key or click the button below to close
+          </p>
           <div className="modal-action">
-            <button className="btn btn-ghost text-slate-900 text-lg" onClick={closeModal}>
+            <button
+              className="btn btn-ghost text-slate-900 text-lg"
+              onClick={closeModal}
+            >
               Close
             </button>
           </div>
