@@ -8,7 +8,7 @@ export const NavBar = () => {
   return (
     <div className="navbar bg-[#113f67]">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl text-slate-100">
+        <a href="/" className="btn btn-ghost text-xl text-slate-100">
           Art Explorer{" "}
           <span className="mt-1">
             {" "}
