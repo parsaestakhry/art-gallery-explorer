@@ -16,7 +16,7 @@ export const NavBar = () => {
           </span>{" "}
         </a>
         {/* artworks anchor link */}
-        <a className="btn text-xl text-slate-100 bg-inherit border-none underline " href="">Artworks</a>
+        <a className="btn text-xl text-slate-100 bg-inherit btn-ghost border-none underline" href="/artworks">Artworks</a>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
