@@ -10,11 +10,13 @@ export const NavBar = () => {
       <div className="flex-1">
         <a className="btn btn-ghost text-xl text-slate-100">
           Art Explorer{" "}
-          <span className="mt-1" >
+          <span className="mt-1">
             {" "}
             <Palette size={27} weight="bold" />{" "}
           </span>{" "}
         </a>
+        {/* artworks anchor link */}
+        <a className="btn text-xl text-slate-100 bg-inherit border-none underline " href="">Artworks</a>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
