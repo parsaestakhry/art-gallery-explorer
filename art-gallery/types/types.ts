@@ -55,3 +55,13 @@ export type ArtWorkCardType = {
   image_url:string
   id:number
 };
+
+
+export type PaginationType = {
+  current_page:number
+  limit:number
+  next_url:string
+  offset:number
+  total:number
+  total_pages:number
+}
