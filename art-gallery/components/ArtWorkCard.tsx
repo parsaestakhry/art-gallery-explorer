@@ -32,10 +32,8 @@ export const ArtWorkCard = ({
       <div>
         <figure>
           <img
-            onDoubleClick={() => router.push(`/artworks/${id}`)}
-            onMouseEnter={openModal}
-            onMouseLeave={closeModal}
-            className="object-cover h-96 border-2 rounded-md"
+            onClick={openModal}
+            className="object-cover h-96 border-2 rounded-md sm:hover:scale-150 "
             src={image_url}
             alt="Album"
           />
@@ -55,12 +53,18 @@ export const ArtWorkCard = ({
           <p className="py-4">
             Press ESC key or click the button below to close
           </p>
-          <div className="modal-action">
+          <div className="modal-action  ">
             <button
-              className="btn btn-ghost text-slate-900 text-lg"
+              className="btn btn-ghost text-slate-900 text-lg border-none "
               onClick={closeModal}
             >
               Close
+            </button>
+            <button
+              className="btn  text-slate-100 text-lg border-none "
+              onClick={() => router.push(`/artworks/${id}`)}
+            >
+              Learn More
             </button>
           </div>
         </div>
