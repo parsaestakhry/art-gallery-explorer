@@ -51,9 +51,7 @@ export const ArtWorkCard = ({
             <h2 className="text-lg">Date of display: {date_display}</h2>
           </>
 
-          <p className="py-4">
-            Press ESC key or click the button below to close
-          </p>
+          
           <div className="modal-action  ">
             <button
               className="btn btn-ghost text-slate-900 text-lg border-none "
