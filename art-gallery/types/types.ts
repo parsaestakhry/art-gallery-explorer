@@ -53,4 +53,5 @@ export type ArtWorkCardType = {
   date_display : string
   iiif_url:string | null
   image_url:string
+  id:number
 };
