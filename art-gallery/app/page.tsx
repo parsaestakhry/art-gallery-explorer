@@ -9,6 +9,7 @@ import { ArtWorkCard } from "@/components/ArtWorkCard";
 export default function Home() {
   // artwork state
   const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>([]);
+  // iiifurl state 
   const [IIIFURL, setIIIFURL] = useState<string|null>(null)
   // fetching the artworks
   const getArtWorks = async () => {
