@@ -1,6 +1,6 @@
 import { ArtWorkCardType } from "@/types/types";
 import React, { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
 export const ArtWorkCard = ({
   image_id,
   artist_display,
@@ -10,9 +10,10 @@ export const ArtWorkCard = ({
   date_display,
   iiif_url,
   image_url,
+  id
 }: ArtWorkCardType) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const router = useRouter();
 
   // Function to open modal
   const openModal = () => {
@@ -31,6 +32,7 @@ export const ArtWorkCard = ({
       <div>
         <figure>
           <img
+            onDoubleClick={() => router.push(`/artworks/${id}`)}
             onMouseEnter={openModal}
             onMouseLeave={closeModal}
             className="object-cover h-96 border-2 rounded-md"
