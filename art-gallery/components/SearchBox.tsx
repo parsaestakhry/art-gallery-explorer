@@ -1,4 +1,4 @@
-import { ArtWorkType } from "@/types/types";
+import { ArtWorkSearchType, ArtWorkType } from "@/types/types";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState } from "react";
 
@@ -10,6 +10,8 @@ export const SearchBox = () => {
 
   // artwork state
   const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>();
+  // search result state
+  const [searchResult, setResultState] = useState<ArtWorkSearchType[] | null>();
   // handling checkbox values
   const handleCheckboxChange = (value: string) => {
     if (selectedCheckbox === value) {
@@ -31,13 +33,14 @@ export const SearchBox = () => {
         `https://api.artic.edu/api/v1/artworks/search?q=${inputValue}`
       );
       if (response.ok) {
-        const data = await response.json()
-        console.log(data)
+        const data = await response.json();
+        //console.log(data);
+        setResultState(data.data)
       }
     }
   };
 
-  //console.log(inputValue)
+  //console.log(searchResult)
 
   return (
     <div className="flex bg-[#113f67] ">
