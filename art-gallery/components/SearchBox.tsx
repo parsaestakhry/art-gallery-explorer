@@ -12,6 +12,7 @@ export const SearchBox = () => {
   const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>();
   // search result state
   const [searchResult, setResultState] = useState<ArtWorkSearchType[] | null>();
+
   // handling checkbox values
   const handleCheckboxChange = (value: string) => {
     if (selectedCheckbox === value) {
@@ -26,7 +27,7 @@ export const SearchBox = () => {
     setInputValue(e.target.value);
   };
 
-  // handling search funcrtion
+  // handling search function
   const search = async () => {
     if (selectedCheckbox === "artworks") {
       const response = await fetch(
@@ -34,16 +35,14 @@ export const SearchBox = () => {
       );
       if (response.ok) {
         const data = await response.json();
-        //console.log(data);
-        setResultState(data.data)
+        setResultState(data.data);
       }
     }
   };
 
-  //console.log(searchResult)
-
+  
   return (
-    <div className="flex bg-[#113f67] ">
+    <div className="relative w-full bg-[#113f67] flex ">
       {/* search box */}
       <label className="input input-bordered bg-[#113f67] flex items-center gap-2 border-none w-full">
         <input
@@ -53,6 +52,16 @@ export const SearchBox = () => {
           placeholder={`Search In ${selectedCheckbox.toUpperCase()}`}
         />
       </label>
+      {/* search results if exists */}
+      {searchResult && (
+        <ul className="absolute top-full left-0 z-10 menu bg-inherit rounded-box w-full mt-2 shadow-lg">
+          {searchResult.map((item, index) => (
+            <li key={index} className="p-2">
+              <a>{item.title}</a>
+            </li>
+          ))}
+        </ul>
+      )}
       {/* search button */}
       <button onClick={search} className="btn btn-ghost border-2">
         <MagnifyingGlass
