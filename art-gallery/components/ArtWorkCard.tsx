@@ -30,7 +30,7 @@ export const ArtWorkCard = ({
 
   return (
     <>
-      <div className=" my-5" >
+      <div className="mx-5 my-5" >
         <figure>
           <img
             onClick={openModal}
