@@ -34,7 +34,7 @@ export const ArtWorkCard = ({
         <figure>
           <img
             onClick={openModal}
-            className=" w-screen h-96 border-2 z-40 rounded-md sm:hover:scale-150 "
+            className=" w-screen sm:w-full h-96 border-2 z-40 rounded-md sm:hover:scale-150 "
             src={image_url}
             alt={title}
           />
