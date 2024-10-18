@@ -69,7 +69,7 @@ export default function Page() {
         </h2>
         <div className="flex flex-wrap mx-10 my-10 justify-center ">
           {artWorks?.map((art, index) => (
-            <div key={index} className="carousel-item">
+            <div key={index} className="carousel-item ">
               {/* passing props to each card  */}
               <ArtWorkCard
                 image_id={art.image_id}
