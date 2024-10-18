@@ -54,13 +54,14 @@ export const ArtistsDropDown = () => {
   return (
     <div className="sm:flex hidden">
       <div className="dropdown dropdown-hover">
-        <div
+        <a
+         href="/artists"
           tabIndex={0}
           role="button"
           className="btn m-1 btn-ghost text-xl text-slate-100"
         >
           Artists <CaretRight className="-ml-1 mt-1" weight="bold" />
-        </div>
+        </a>
 
         <ul className=" dropdown-content dropdown menu xl:menu-horizontal text-slate-100  bg-[#38598b] rounded-box lg:min-w-max z-40 ">
           <li>
