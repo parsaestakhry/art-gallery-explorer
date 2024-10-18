@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
-// importing the color pallete svg 
+// importing the color pallete svg
 import { Palette } from "@phosphor-icons/react";
 import React from "react";
+import { ArtistsDropDown } from "./ArtistsDropDown";
 
 export const NavBar = () => {
   return (
@@ -16,7 +17,13 @@ export const NavBar = () => {
           </span>{" "}
         </a>
         {/* artworks anchor link */}
-        <a className="btn text-xl text-slate-100 bg-inherit btn-ghost border-none underline" href="/artworks">Artworks</a>
+        <a
+          className="btn text-xl text-slate-100 bg-inherit btn-ghost border-none underline"
+          href="/artworks"
+        >
+          Artworks
+        </a>
+        <ArtistsDropDown/>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">
