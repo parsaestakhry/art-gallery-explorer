@@ -26,7 +26,7 @@ export const NavBar = () => {
         <ArtistsDropDown/>
       </div>
       <div className="flex-none">
-        <button className="btn btn-square btn-ghost">
+        <button className="btn btn-square btn-ghost sm:hidden">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
