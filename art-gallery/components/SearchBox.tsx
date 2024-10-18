@@ -61,10 +61,10 @@ export const SearchBox = () => {
       </label>
       {/* search results if exists */}
       {searchResult && (
-        <ul className="absolute top-full left-0 z-10 menu bg-inherit rounded-box w-full mt-2 shadow-lg">
+        <ul className="absolute top-full left-0 z-10 menu bg-[#a2a8d3] rounded-box w-full mt-2 shadow-lg">
           {searchResult.map((item, index) => (
-            <li key={index} className="p-2 text-slate-100 text-md">
-              <a href={`/artworks/${item.id}`} >{item.title}</a>
+            <li key={index} className="p-2 text-slate-800 text-md">
+              <a href={`/artworks/${item.id}`}>{item.title}</a>
             </li>
           ))}
         </ul>
@@ -117,7 +117,7 @@ export const SearchBox = () => {
           </div>
         </ul>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 };
