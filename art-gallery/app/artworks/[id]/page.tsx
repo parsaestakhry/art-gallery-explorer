@@ -59,13 +59,14 @@ export default function Page() {
             <hr />
             <p className="sm:text-3xl text-lg">
               {" "}
-              Created By : {artWork?.artist_title}
+              Created By : {artWork?.artist_title ? artWork.artist_title : "no records"}
             </p>
             <ul className="mb-5 space-y-5 ">
-              <li className="">Category : {artWork?.category_titles}</li>
+              <li className="">Category : {artWork?.category_titles ? artWork.category_titles : "no records"}</li>
 
               <li className="">
-                Classification : {artWork?.classification_title}
+                Classification :{" "}
+                {artWork?.classification_title ? artWork.classification_title : "no records"}
               </li>
 
               <li className="">
@@ -85,8 +86,8 @@ export default function Page() {
                   ? artWork.exhibition_history
                   : "no records"}
               </li>
-              <li className="">Fiscal Year : {artWork?.fiscal_year}</li>
-              <li className="">Place of Origin : {artWork?.place_of_origin}</li>
+              <li className="">Fiscal Year : {artWork?.fiscal_year ? artWork?.fiscal_year : "no records"}</li>
+              <li className="">Place of Origin : {artWork?.place_of_origin ? artWork.place_of_origin : "no records" }</li>
             </ul>
             <div className="card-actions justify-end">
               <button className="btn btn-ghost text-xl">
