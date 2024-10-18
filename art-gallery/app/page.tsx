@@ -67,7 +67,7 @@ export default function Home() {
       </div>
       {/* carousel heading */}
 
-      <h2 className="text-center sm:text-6xl text-3xl my-10 font-serif text-slate-50 text-wrap ">
+      <h2 className="text-center sm:text-5xl text-3xl my-10 font-mono text-slate-50 text-wrap ">
         Click on each image to Learn More !
       </h2>
       {/* carousel  */}
