@@ -63,7 +63,7 @@ export default function Page() {
           </div>
         </div> */}
         {/* artworks card  */}
-        <span className="text-4xl font-serif ">Take a look at our unique collection</span>
+        <h2 className="text-4xl font-serif ">Take a look at our unique collection</h2>
         <div className="flex flex-wrap mx-10 my-10 justify-center ">
           {artWorks?.map((art, index) => (
             <div key={index} className="carousel-item">
