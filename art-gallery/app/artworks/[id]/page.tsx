@@ -9,7 +9,7 @@ export default function Page() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [artWork, setArtWork] = useState<ArtWorkType | null>();
-
+  const [IIIFURL, setIIIFURL] = useState<string | null>(null);
   //  reading the parameters using useEffect
   useEffect(() => {
     // assigning parameters
@@ -24,31 +24,30 @@ export default function Page() {
       );
       //   assigning valyes
       const data = await response.json();
-      //console.log(data);
+      console.log(data);
       setArtWork(data.data);
+      setIIIFURL(data.config.iiif_url)
     };
     getArt();
   }, [pathname, searchParams]);
 
-  
-
   return (
     <>
-      <div className="bg-[#38598b]">
-        <div className="sm:carousel sm:w-full hidden ">
-          <div id="item1" className="carousel-item w-full">
+      <div className="bg-[#113f67]">
+        <div className="sm:carousel sm:w-full hidden bg-black items-center ">
+          <div id="item1" className="carousel-item mx-auto  ">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
-              className="w-full"
+              src={`${IIIFURL}/${artWork?.image_id}/full/843,/0/default.jpg`}
+              className="w-full h-5/6 "
             />
           </div>
         </div>
-        
-        <div className="card lg:card-side  shadow-xl min-h-screen rounded-none text-slate-50 font-serif ">
+
+        <div className="card lg:card-side  shadow-xl min-h-screen rounded-none text-slate-50 font-serif  ">
           <figure>
             <img
               className=" object-fill w-full sm:hidden"
-              src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
+              src={`${IIIFURL}/${artWork?.image_id}/full/843,/0/default.jpg`}
               alt="Album"
             />
           </figure>
