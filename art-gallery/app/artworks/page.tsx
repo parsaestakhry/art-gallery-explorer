@@ -38,7 +38,30 @@ export default function Page() {
   
   return (
     <>
-      <div className="bg-[#113f67] py-3 flex justify-center text-2xl font-serif text-slate-50 min-h-screen ">
+      <div className="bg-[#113f67] py-3 text-2xl font-sans  min-h-screen ">
+        {/* filtering bar */}
+        {/* <div className="flex justify-center">
+          <div className="dropdown ">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn m-1 bg-[#e7eaf6] btn-ghost border-none text-slate-700 text-xl hover:bg-inherit hover:text-slate-100 "
+            >
+              Artists
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-[#e7eaf6] rounded-box z-[1] w-52 p-2 shadow   "
+            >
+              <li>
+                <a>Item 1</a>
+              </li>
+              <li>
+                <a>Item 2</a>
+              </li>
+            </ul>
+          </div>
+        </div> */}
         {/* artworks card  */}
         <div className="flex flex-wrap mx-10 my-10 justify-center ">
           {artWorks?.map((art, index) => (
