@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ArtWorkType } from "@/types/types";
+import { Bookmark } from "@phosphor-icons/react";
 
 export default function Page() {
   // reading the query parameters
@@ -38,7 +39,7 @@ export default function Page() {
           <div id="item1" className="carousel-item mx-auto  ">
             <img
               src={`${IIIFURL}/${artWork?.image_id}/full/843,/0/default.jpg`}
-              className="w-full h-5/6 "
+              className="w-full h-[50vh] "
             />
           </div>
         </div>
@@ -46,7 +47,7 @@ export default function Page() {
         <div className="card lg:card-side  shadow-xl  rounded-none text-slate-50 font-sans  ">
           <figure>
             <img
-              className=" object-fill w-full sm:hidden"
+              className=" object-fill w-full sm:hidden h-[50vh] "
               src={`${IIIFURL}/${artWork?.image_id}/full/843,/0/default.jpg`}
               alt="Album"
             />
@@ -67,9 +68,16 @@ export default function Page() {
                 Classification : {artWork?.classification_title}
               </li>
 
-              <li className="">Department : {artWork?.department_title}</li>
+              <li className="">
+                Department :{" "}
+                {artWork?.department_title
+                  ? artWork.department_title
+                  : "no records"}
+              </li>
 
-              <li className="">Edition : {artWork?.edition}</li>
+              <li className="">
+                Edition : {artWork?.edition ? artWork.edition : "no records"}
+              </li>
 
               <li className="">
                 Exhibition :{" "}
@@ -81,7 +89,9 @@ export default function Page() {
               <li className="">Place of Origin : {artWork?.place_of_origin}</li>
             </ul>
             <div className="card-actions justify-end">
-              <button className="btn btn-primary">Listen</button>
+              <button className="btn btn-ghost text-xl">
+                Add to favorites <Bookmark size={30} weight="bold" />{" "}
+              </button>
             </div>
           </div>
         </div>
