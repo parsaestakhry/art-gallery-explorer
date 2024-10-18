@@ -17,7 +17,7 @@ export default function Page() {
   // fetching artworks based on the pagination
   const getArtWorks = async () => {
     const response = await fetch(
-      `https://api.artic.edu/api/v1/artworks?page=2&limit=50 `,
+      `https://api.artic.edu/api/v1/artworks?page=${pageNumber}&limit=50 `,
       {
         method: "GET",
       }
@@ -28,14 +28,15 @@ export default function Page() {
     setPagination(data.pagination);
     // setting the iiif url
     setIIIFURL(data.config.iiif_url);
+    // setting the page number
   };
 
   // calling function using useEffect
   useEffect(() => {
     getArtWorks();
-  }, []);
+  }, [pageNumber]);
   //console.log(IIIFURL)
-  
+
   return (
     <>
       <div className="bg-[#113f67] py-3 font-sans text-slate-100  min-h-screen text-center ">
@@ -63,7 +64,9 @@ export default function Page() {
           </div>
         </div> */}
         {/* artworks card  */}
-        <h2 className="text-4xl font-serif ">Take a look at our unique collection</h2>
+        <h2 className="text-4xl font-serif ">
+          Take a look at our unique collection
+        </h2>
         <div className="flex flex-wrap mx-10 my-10 justify-center ">
           {artWorks?.map((art, index) => (
             <div key={index} className="carousel-item">
@@ -81,6 +84,25 @@ export default function Page() {
               />
             </div>
           ))}
+        </div>
+        {/* pagination component  */}
+        <div className="join ">
+          <button className="join-item btn bg-[#e7eaf6] border-none text-slate-900 hover:bg-slate-500 ">
+            «
+          </button>
+          <button className="join-item btn bg-[#e7eaf6] border-none text-slate-900 hover:bg-slate-500 ">
+            Page {pageNumber}
+          </button>
+          {pageNumber === pagination?.total_pages ? (
+            ""
+          ) : (
+            <button
+              onClick={() => setPageNumber(pageNumber + 1)}
+              className="join-item btn bg-[#e7eaf6] border-none text-slate-900 hover:bg-slate-500 "
+            >
+              »
+            </button>
+          )}
         </div>
       </div>
     </>
