@@ -49,7 +49,7 @@ export const ArtistsDropDown = () => {
     "Z",
   ];
 
-  console.log(artistNames)
+  //console.log(artistNames)
 
   return (
     <div className="sm:flex hidden">
