@@ -14,11 +14,12 @@ export const SearchBox = () => {
       </label>
       {/* search button */}
       <button className="btn btn-ghost border-2">
-        <MagnifyingGlass weight="bold" size={20} />
+        <MagnifyingGlass weight="bold" className="mt-2" color="#ffff"  size={20} />
       </button>
+      {/* filtering dropdown */}
       <div className="dropdown dropdown-end">
         <div tabIndex={0} role="button" className="btn m-1 text-nowrap btn-ghost text-slate-100">
-          Search filters
+          Search filters ...
         </div>
         <ul
           tabIndex={0}
