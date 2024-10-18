@@ -47,7 +47,7 @@ export const SearchBox = () => {
     }
   };
 
-  
+  console.log(searchResult)
   return (
     <div className="relative w-full bg-[#113f67] flex ">
       {/* search box */}
@@ -63,8 +63,8 @@ export const SearchBox = () => {
       {searchResult && (
         <ul className="absolute top-full left-0 z-10 menu bg-inherit rounded-box w-full mt-2 shadow-lg">
           {searchResult.map((item, index) => (
-            <li key={index} className="p-2">
-              <a>{item.title}</a>
+            <li key={index} className="p-2 text-slate-100 text-md">
+              <a href={`/artworks/${item.id}`} >{item.title}</a>
             </li>
           ))}
         </ul>
