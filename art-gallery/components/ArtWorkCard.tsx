@@ -30,11 +30,11 @@ export const ArtWorkCard = ({
 
   return (
     <>
-      <div className="mx-5 my-5" >
+      <div className=" my-5" >
         <figure>
           <img
             onClick={openModal}
-            className="object-cover h-96 border-2 z-40 rounded-md sm:hover:scale-150 "
+            className=" w-screen h-96 border-2 z-40 rounded-md sm:hover:scale-150 "
             src={image_url}
             alt={title}
           />
@@ -42,7 +42,7 @@ export const ArtWorkCard = ({
       </div>
 
       <dialog id={`my_modal_${title}`} className="modal">
-        <div className="modal-box bg-[#a2a8d3] text-slate-700 font-serif space-y-5">
+        <div className="modal-box bg-[#a2a8d3] text-slate-700 font-serif space-y-5 ">
           <>
             <h3 className="text-2xl">Title: {title}</h3>
             <h2 className="text-lg">Artist: {artist_title}</h2>
