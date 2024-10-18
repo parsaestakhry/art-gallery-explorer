@@ -2,8 +2,9 @@ import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState } from "react";
 
 export const SearchBox = () => {
+  // checkbox state 
   const [selectedCheckbox, setSelectedCheckbox] = useState("");
-
+  // handling checkbox values
   const handleCheckboxChange = (value: string) => {
     if (selectedCheckbox === value) {
       setSelectedCheckbox(""); // Deselect if already selected
@@ -11,6 +12,12 @@ export const SearchBox = () => {
       setSelectedCheckbox(value);
     }
   };
+
+  // handling search funcrtion
+  const search = async () => {
+    
+  }
+
 
   //console.log(selectedCheckbox)
 
@@ -20,8 +27,8 @@ export const SearchBox = () => {
       <label className="input input-bordered bg-[#113f67] flex items-center gap-2 border-none w-full">
         <input
           type="text"
-          className="grow bg-[#113f67] placeholder:text-slate-300"
-          placeholder="Search In ..."
+          className="grow bg-[#113f67] placeholder:text-slate-100"
+          placeholder={`Search In ${selectedCheckbox}`}
         />
       </label>
       {/* search button */}
