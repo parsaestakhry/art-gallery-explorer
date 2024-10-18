@@ -30,6 +30,12 @@ export const SearchBox = () => {
 
   // handling search function
   const search = async () => {
+    if (selectedCheckbox === "") {
+      toast.error("please select at least one field", {
+        position:"bottom-right",
+        theme:"dark"
+      })
+    }
     if (selectedCheckbox === "artworks") {
       const response = await fetch(
         `https://api.artic.edu/api/v1/artworks/search?q=${inputValue}`
@@ -111,6 +117,7 @@ export const SearchBox = () => {
           </div>
         </ul>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
