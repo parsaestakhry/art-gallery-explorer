@@ -65,3 +65,19 @@ export type PaginationType = {
   total:number
   total_pages:number
 }
+
+export type ArtistType = {
+  alt_titles:string[]
+  api_link:string
+  api_model:string
+  birth_date:number
+  death_date:number | null
+  description: string | null
+  id:number
+  is_artist:boolean
+  sort_title:string
+  timestamp:Date
+  title:string
+  
+
+}
