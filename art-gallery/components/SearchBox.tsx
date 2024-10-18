@@ -1,9 +1,15 @@
+import { ArtWorkType } from "@/types/types";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState } from "react";
 
 export const SearchBox = () => {
-  // checkbox state 
+  // checkbox state
   const [selectedCheckbox, setSelectedCheckbox] = useState("");
+  // input state
+  const [inputValue, setInputValue] = useState("");
+
+  // artwork state
+  const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>();
   // handling checkbox values
   const handleCheckboxChange = (value: string) => {
     if (selectedCheckbox === value) {
@@ -13,26 +19,39 @@ export const SearchBox = () => {
     }
   };
 
+  // handling input box change
+  const handleInputChange = async (e: any) => {
+    setInputValue(e.target.value);
+  };
+
   // handling search funcrtion
   const search = async () => {
-    
-  }
+    if (selectedCheckbox === "artworks") {
+      const response = await fetch(
+        `https://api.artic.edu/api/v1/artworks/search?q=${inputValue}`
+      );
+      if (response.ok) {
+        const data = await response.json()
+        console.log(data)
+      }
+    }
+  };
 
-
-  //console.log(selectedCheckbox)
+  //console.log(inputValue)
 
   return (
     <div className="flex bg-[#113f67] ">
       {/* search box */}
       <label className="input input-bordered bg-[#113f67] flex items-center gap-2 border-none w-full">
         <input
+          onChange={(e) => handleInputChange(e)}
           type="text"
           className="grow bg-[#113f67] placeholder:text-slate-100"
-          placeholder={`Search In ${selectedCheckbox}`}
+          placeholder={`Search In ${selectedCheckbox.toUpperCase()}`}
         />
       </label>
       {/* search button */}
-      <button className="btn btn-ghost border-2">
+      <button onClick={search} className="btn btn-ghost border-2">
         <MagnifyingGlass
           weight="bold"
           className="mt-2"
