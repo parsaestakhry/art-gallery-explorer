@@ -87,3 +87,13 @@ export type ArtWorkSearchType = {
   timestamp:Date
   title:string
 }
+
+export type ArtistSearchType = {
+  _score: number;
+  api_link: string;
+  api_model: string;
+  id: string;
+  is_boosted: string;
+  timestamp: Date;
+  title: string;
+};
