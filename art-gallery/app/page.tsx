@@ -67,9 +67,9 @@ export default function Home() {
         </div>
       </div>
       {/* carousel heading */}
-      <div className="flex justify-center my-5 text-4xl font-serif text-slate-100" >
-        <h2>A view of our unique collection </h2>
-        <div className="dropdown dropdown-end">
+      <div className="flex justify-center my-5  text-4xl font-serif text-slate-100" >
+        <h2 className="sm:text-nowrap text-wrap text-center  " >A view of our unique collection </h2>
+        <div className="dropdown dropdown-end flex ">
           <div
             tabIndex={0}
             role="button"
