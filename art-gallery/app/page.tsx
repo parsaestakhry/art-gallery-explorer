@@ -5,6 +5,7 @@ import image from "@/public/images/marishka-tsiklauri-xIkqIhBPlV4-unsplash.jpg";
 import { useEffect, useState } from "react";
 import { ArtWorkType } from "@/types/types";
 import { ArtWorkCard } from "@/components/ArtWorkCard";
+import { Info } from "@phosphor-icons/react";
 
 export default function Home() {
   // artwork state
@@ -66,13 +67,30 @@ export default function Home() {
         </div>
       </div>
       {/* carousel heading */}
+      <div className="flex justify-center my-5 text-4xl font-serif text-slate-100" >
+        <h2>A view of our unique collection </h2>
+        <div className="dropdown dropdown-end">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-circle btn-ghost text-info"
+          >
+            <Info size={28} />
+          </div>
+          <div
+            tabIndex={0}
+            className="card compact dropdown-content bg-base-100 rounded-box z-[1] w-64 shadow"
+          >
+            <div tabIndex={0} className="card-body">
+              <h2 className="card-title">You needed more info?</h2>
+              <p>Just tap on each image!</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <h2 className="text-center sm:text-5xl text-3xl my-10 font-mono text-slate-50 text-wrap ">
-        Click on each image to Learn More !
-      </h2>
       {/* carousel  */}
       <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10 flex ">
-        
         {/* mapping through artworks array */}
         {artWorks?.map((art, index) => (
           <div key={index} className="carousel-item">
