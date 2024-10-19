@@ -10,7 +10,7 @@ export const NavBar = () => {
   return (
     <div>
       <SearchBox/>
-      <div className="navbar bg-[#113f67]">
+      <div className="navbar bg-[#113f67] ">
         <div className="flex-1">
           <a href="/" className="btn btn-ghost text-xl text-slate-100">
             Art Explorer{" "}
