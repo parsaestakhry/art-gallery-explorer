@@ -1,8 +1,8 @@
 import { ArtWorkSearchType, ArtWorkType } from "@/types/types";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 import React, { useState } from "react";
- import { ToastContainer, toast } from "react-toastify";
- import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export const SearchBox = () => {
   // checkbox state
   const [selectedCheckbox, setSelectedCheckbox] = useState("");
@@ -13,6 +13,8 @@ export const SearchBox = () => {
   const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>();
   // search result state
   const [searchResult, setResultState] = useState<ArtWorkSearchType[] | null>();
+  // artist search result state
+  const [artistsSearch, setArtistsSearch] = useState<ArtWorkSearchType[] | null>()
 
   // handling checkbox values
   const handleCheckboxChange = (value: string) => {
@@ -32,9 +34,9 @@ export const SearchBox = () => {
   const search = async () => {
     if (selectedCheckbox === "") {
       toast.error("please select at least one field", {
-        position:"bottom-right",
-        theme:"dark"
-      })
+        position: "bottom-right",
+        theme: "dark",
+      });
     }
     if (selectedCheckbox === "artworks") {
       const response = await fetch(
@@ -44,10 +46,18 @@ export const SearchBox = () => {
         const data = await response.json();
         setResultState(data.data);
       }
+    } else if (selectedCheckbox === "artists") {
+      const response = await fetch(
+        `https://api.artic.edu/api/v1/artists/search?q=${inputValue}`
+      );
+      if (response.ok) {
+        const data = await response.json()
+        setArtistsSearch(data.data)
+      }
     }
   };
 
-  console.log(searchResult)
+  //console.log(searchResult);
   return (
     <div className="relative w-full bg-[#113f67] flex ">
       {/* search box */}
@@ -60,11 +70,20 @@ export const SearchBox = () => {
         />
       </label>
       {/* search results if exists */}
-      {searchResult && (
+      {selectedCheckbox === "artworks" && searchResult && (
         <ul className="absolute top-full left-0 z-10 menu bg-[#a2a8d3] rounded-box w-full mt-2 shadow-lg">
           {searchResult.map((item, index) => (
             <li key={index} className="p-2 text-slate-800 text-md">
               <a href={`/artworks/${item.id}`}>{item.title}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+      {selectedCheckbox === "artists" && artistsSearch && (
+        <ul className="absolute top-full left-0 z-10 menu bg-[#a2a8d3] rounded-box w-full mt-2 shadow-lg">
+          {artistsSearch.map((item, index) => (
+            <li key={index} className="p-2 text-slate-800 text-md">
+              <a href={`/artists/${item.id}`}>{item.title}</a>
             </li>
           ))}
         </ul>
