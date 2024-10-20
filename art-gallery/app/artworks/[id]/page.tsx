@@ -10,14 +10,13 @@ export default function Page() {
   // reading the query parameters
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  // artworks state 
+  // artworks state
   const [artWork, setArtWork] = useState<ArtWorkType | null>();
-  // iiif url state 
+  // iiif url state
   const [IIIFURL, setIIIFURL] = useState<string | null>(null);
   // using the context
-  const favoritesContext = useContext(FavoritesContext)
-  
-  
+  const favoritesContext = useContext(FavoritesContext);
+
   //  reading the parameters using useEffect
   useEffect(() => {
     // assigning parameters
@@ -34,22 +33,20 @@ export default function Page() {
       const data = await response.json();
       //console.log(data);
       setArtWork(data.data);
-      setIIIFURL(data.config.iiif_url)
+      setIIIFURL(data.config.iiif_url);
     };
     getArt();
   }, [pathname, searchParams]);
 
   const addToFavorites = () => {
-    favoritesContext?.addArtWork(artWork!)
+    favoritesContext?.addArtWork(artWork!);
     toast.success("Added To Favorites!", {
-      position:'bottom-right',
-      theme:'dark'
-    })
-  }
-
+      position: "bottom-right",
+      theme: "dark",
+    });
+  };
 
   //console.log(favoritesContext?.artworks)
-
 
   return (
     <>
@@ -58,7 +55,7 @@ export default function Page() {
           <div id="item1" className="carousel-item mx-auto  ">
             <img
               src={`${IIIFURL}/${artWork?.image_id}/full/843,/0/default.jpg`}
-              className="w-full h-[50vh] "
+              className="w-full h-full transform transition-transform duration-500 group-hover:scale-125"
             />
           </div>
         </div>
@@ -78,14 +75,22 @@ export default function Page() {
             <hr />
             <p className="sm:text-3xl text-lg">
               {" "}
-              Created By : {artWork?.artist_title ? artWork.artist_title : "no records"}
+              Created By :{" "}
+              {artWork?.artist_title ? artWork.artist_title : "no records"}
             </p>
             <ul className="mb-5 space-y-5 ">
-              <li className="">Category : {artWork?.category_titles ? artWork.category_titles : "no records"}</li>
+              <li className="">
+                Category :{" "}
+                {artWork?.category_titles
+                  ? artWork.category_titles
+                  : "no records"}
+              </li>
 
               <li className="">
                 Classification :{" "}
-                {artWork?.classification_title ? artWork.classification_title : "no records"}
+                {artWork?.classification_title
+                  ? artWork.classification_title
+                  : "no records"}
               </li>
 
               <li className="">
@@ -105,17 +110,28 @@ export default function Page() {
                   ? artWork.exhibition_history
                   : "no records"}
               </li>
-              <li className="">Fiscal Year : {artWork?.fiscal_year ? artWork?.fiscal_year : "no records"}</li>
-              <li className="">Place of Origin : {artWork?.place_of_origin ? artWork.place_of_origin : "no records" }</li>
+              <li className="">
+                Fiscal Year :{" "}
+                {artWork?.fiscal_year ? artWork?.fiscal_year : "no records"}
+              </li>
+              <li className="">
+                Place of Origin :{" "}
+                {artWork?.place_of_origin
+                  ? artWork.place_of_origin
+                  : "no records"}
+              </li>
             </ul>
             <div className="card-actions justify-end">
-              <button onClick={() => addToFavorites()} className="btn btn-ghost text-xl">
+              <button
+                onClick={() => addToFavorites()}
+                className="btn btn-ghost text-xl"
+              >
                 Add to favorites <Bookmark size={30} weight="bold" />{" "}
               </button>
             </div>
           </div>
         </div>
-        <ToastContainer/>
+        <ToastContainer />
       </div>
     </>
   );
