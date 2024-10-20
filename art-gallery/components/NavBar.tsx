@@ -6,11 +6,11 @@ import React from "react";
 import { ArtistsDropDown } from "./ArtistsDropDown";
 import { SearchBox } from "./SearchBox";
 import { Drawer } from "./Drawer";
-import { ActionsCollapse } from "./ActionsCollapse";
+import { SearchCollapse } from "./SearchCollapse";
 
 export const NavBar = () => {
   return (
-    <div className="bg-[#38598b]">
+    <div className="bg-base-200">
       <SearchBox />
       <div className="navbar bg-[#113f67] ">
         <div className="flex-1">
@@ -32,7 +32,7 @@ export const NavBar = () => {
         </div>
         <div className="flex-none">{/* <Drawer /> */}</div>
       </div>
-      <ActionsCollapse />
+      <SearchCollapse />
     </div>
   );
 };
