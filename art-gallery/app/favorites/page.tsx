@@ -12,7 +12,6 @@ export default function Page () {
 
 
     return (
-      <>
         <div className="min-h-screen bg-[#113f67]  text-center ">
           <span className=" text-slate-50 text-4xl font-serif my-10 ">
             {" "}
@@ -36,6 +35,5 @@ export default function Page () {
             </div>
           ))}
         </div>
-      </>
     );
 }
