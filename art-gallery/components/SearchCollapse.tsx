@@ -64,7 +64,7 @@ export const SearchCollapse = () => {
   };
 
   return (
-    // search collapse 
+    // search collapse
     <div className="collapse bg-base-200 ">
       <input type="checkbox" />
       <div className="collapse-title text-xl font-medium flex items-center text-slate-200 ">
@@ -72,6 +72,15 @@ export const SearchCollapse = () => {
       </div>
       {/* collapse content */}
       <div className="collapse-content">
+        {/* search box */}
+        <label className="input input-bordered bg-inherit flex items-center  border-2 w-full">
+          <input
+            onChange={(e) => handleInputChange(e)}
+            type="text"
+            className="grow bg-[#113f67] placeholder:text-slate-300"
+            placeholder={`Search In ${selectedCheckbox.toUpperCase()}`}
+          />
+        </label>
         {/* artworks checkbox  */}
         <div className="form-control mr-5">
           <label className="label cursor-pointer">
