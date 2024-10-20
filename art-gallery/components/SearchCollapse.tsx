@@ -72,7 +72,7 @@ export const SearchCollapse = () => {
       </div>
       {/* collapse content */}
       <div className="collapse-content">
-        <div className="flex items-center  " >
+        <div className="flex items-center  ">
           {/* search box */}
           <label className="input input-bordered bg-inherit flex items-center  border-2 w-full">
             <input
@@ -92,7 +92,7 @@ export const SearchCollapse = () => {
             />
           </button>
         </div>
-        
+
         {/* artworks checkbox  */}
         <div className="form-control mr-5">
           <label className="label cursor-pointer">
@@ -119,6 +119,25 @@ export const SearchCollapse = () => {
             />
           </label>
         </div>
+        {/* search results if exists */}
+        {selectedCheckbox === "artworks" && searchResult && (
+          <ul className="z-10 menu bg-[#a2a8d3] rounded-box w-full mt-2">
+            {searchResult.map((item, index) => (
+              <li key={index} className="p-2 text-slate-800 text-md">
+                <a href={`/artworks/${item.id}`}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+        {selectedCheckbox === "artists" && artistsSearch && (
+          <ul className="z-10 menu bg-[#a2a8d3] rounded-box w-full mt-2">
+            {artistsSearch.map((item, index) => (
+              <li key={index} className="p-2 text-slate-800 text-md">
+                <a href={`/artists/${item.id}`}>{item.title}</a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
