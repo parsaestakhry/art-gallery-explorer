@@ -1,16 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ArtWorkType } from "@/types/types";
 import { Bookmark } from "@phosphor-icons/react";
-
+import { FavoritesContext } from "@/context/FavoritesContext";
+import { toast, ToastContainer } from "react-toastify";
 export default function Page() {
   // reading the query parameters
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  // artworks state 
   const [artWork, setArtWork] = useState<ArtWorkType | null>();
+  // iiif url state 
   const [IIIFURL, setIIIFURL] = useState<string | null>(null);
+  // using the context
+  const favoritesContext = useContext(FavoritesContext)
+  
   
   //  reading the parameters using useEffect
   useEffect(() => {
@@ -26,7 +32,7 @@ export default function Page() {
       );
       //   assigning valyes
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       setArtWork(data.data);
       setIIIFURL(data.config.iiif_url)
     };
@@ -34,8 +40,16 @@ export default function Page() {
   }, [pathname, searchParams]);
 
   const addToFavorites = () => {
-    
+    favoritesContext?.addArtWork(artWork!)
+    toast.success("Added To Favorites!", {
+      position:'bottom-right',
+      theme:'dark'
+    })
   }
+
+
+  //console.log(favoritesContext?.artworks)
+
 
   return (
     <>
@@ -101,6 +115,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+        <ToastContainer/>
       </div>
     </>
   );
