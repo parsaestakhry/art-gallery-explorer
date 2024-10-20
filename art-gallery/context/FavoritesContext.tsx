@@ -2,6 +2,7 @@
 
 import { ArtWorkType } from "@/types/types";
 import { createContext, useContext, useEffect, useState } from "react";
+
 // type of the context
 interface FavoritesContextProps {
   artworks: ArtWorkType[];
@@ -20,24 +21,44 @@ export const FavoritesProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  // artworks state
-  const [artworks, setArtWorks] = useState<ArtWorkType[]>([]);
-  //   add artworks function
+  // Load initial state from localStorage
+  const [artworks, setArtWorks] = useState<ArtWorkType[]>(() => {
+    if (typeof window !== "undefined") {
+      const storedArtworks = localStorage.getItem("artworks");
+      return storedArtworks ? JSON.parse(storedArtworks) : [];
+    }
+    return [];
+  });
+
+  // Save artworks to localStorage whenever the state changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("artworks", JSON.stringify(artworks));
+    }
+  }, [artworks]);
+
+  // add artwork function
   const addArtWork = (artwork: ArtWorkType) => {
-    useEffect(() => {
-      // adding the new artwork to the previous artworks
-      setArtWorks((prevArtWorks) => [...prevArtWorks, artwork]);
-    }, []);
+    setArtWorks((prevArtWorks) => [...prevArtWorks, artwork]);
   };
-  //   remove artwork function
-  const removeArtWork = (index:number) => {
-    // filtering the artwork from the other artworks 
-    setArtWorks((prevArtWorks) => prevArtWorks.filter((_, i) => i !== index))
-  }
+
+  // remove artwork function
+  const removeArtWork = (index: number) => {
+    setArtWorks((prevArtWorks) => prevArtWorks.filter((_, i) => i !== index));
+  };
 
   return (
-    <FavoritesContext.Provider value={{artworks, addArtWork, removeArtWork}}>
-        {children}
+    <FavoritesContext.Provider value={{ artworks, addArtWork, removeArtWork }}>
+      {children}
     </FavoritesContext.Provider>
-  )
+  );
+};
+
+// Custom hook to use the FavoritesContext
+export const useFavorites = () => {
+  const context = useContext(FavoritesContext);
+  if (!context) {
+    throw new Error("useFavorites must be used within a FavoritesProvider");
+  }
+  return context;
 };
