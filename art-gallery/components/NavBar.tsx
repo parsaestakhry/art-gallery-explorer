@@ -6,10 +6,11 @@ import React from "react";
 import { ArtistsDropDown } from "./ArtistsDropDown";
 import { SearchBox } from "./SearchBox";
 import { Drawer } from "./Drawer";
+import { ActionsCollapse } from "./ActionsCollapse";
 
 export const NavBar = () => {
   return (
-    <div>
+    <div className="bg-[#38598b]">
       <SearchBox />
       <div className="navbar bg-[#113f67] ">
         <div className="flex-1">
@@ -22,17 +23,16 @@ export const NavBar = () => {
           </a>
           {/* artworks anchor link */}
           <a
-            className="btn text-xl text-slate-100 bg-inherit btn-ghost border-none underline"
+            className="md:btn md:text-xl md:text-slate-100 md:bg-inherit md:btn-ghost md:border-none md:underline  hidden  "
             href="/artworks"
           >
             Artworks
           </a>
           <ArtistsDropDown />
         </div>
-        <div className="flex-none">
-          {/* <Drawer /> */}
-        </div>
+        <div className="flex-none">{/* <Drawer /> */}</div>
       </div>
+      <ActionsCollapse />
     </div>
   );
 };
