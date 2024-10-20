@@ -14,7 +14,15 @@ export default function Page() {
   const [pagination, setPagination] = useState<PaginationType | null>();
   // iiifurl state
   const [IIIFURL, setIIIFURL] = useState<string | null>(null);
+  // artwork type filter
+  const [artWorkTypes, setArtWorkTypes] = useState<string[]| null>([])
+  // handling artwork types checkbox change
+  const handleArtWorkTypeChange= (type:string) => {
+    setArtWorkTypes((prevArtWorkTypes) => [...prevArtWorkTypes!, type])
+  }
 
+  //console.log(artWorkTypes)
+  
   // fetching artworks based on the pagination
   const getArtWorks = async () => {
     const response = await fetch(
@@ -24,19 +32,28 @@ export default function Page() {
       }
     );
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     setArtWorks(data.data);
     setPagination(data.pagination);
     // setting the iiif url
     setIIIFURL(data.config.iiif_url);
-    // setting the page number
+    // Filter artworks based on selected types
+    const filteredArtWorks = data.data.filter((artwork: ArtWorkType) =>
+      artWorkTypes!.length > 0
+        ? artWorkTypes!.includes(artwork.artwork_type_title)
+        : true
+    );
+    setArtWorks(filteredArtWorks);
   };
 
   // calling function using useEffect
   useEffect(() => {
     getArtWorks();
-  }, [pageNumber]);
+  }, [pageNumber,artWorkTypes]);
   //console.log(IIIFURL)
+
+
+  
 
   return (
     <>
@@ -75,7 +92,7 @@ export default function Page() {
               role="button"
               className="btn m-1 rounded-3xl bg-slate-300 border-none text-slate-800 hover:bg-slate-400 text-lg "
             >
-              Artwork Type:
+              Artwork Types:
             </div>
             <ul
               tabIndex={0}
@@ -86,6 +103,7 @@ export default function Page() {
                   <label className="label cursor-pointer">
                     <span className="label-text text-slate-100 text-md">{type.title}</span>
                     <input
+                      onChange={() => handleArtWorkTypeChange(type.title)}
                       type="checkbox"
                       className="checkbox"
                     />
