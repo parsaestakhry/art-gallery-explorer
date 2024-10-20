@@ -4,6 +4,7 @@ import { ArtWorkCard } from "@/components/ArtWorkCard";
 import { ArtWorkType, PaginationType } from "@/types/types";
 import { useEffect, useState } from "react";
 import ArtWorkTypes from "@/json/artwork-types.json";
+import { CaretDown } from "@phosphor-icons/react";
 
 export default function Page() {
   // page number state
@@ -85,18 +86,20 @@ export default function Page() {
         <h2 className="text-4xl font-serif ">
           Take a look at our unique collection
         </h2>
+        {/* filtering bar */}
         <div className="my-10 flex justify-center">
+          {/* artwork type filter  */}
           <div className="dropdown dropdown-bottom">
             <div
               tabIndex={0}
               role="button"
               className="btn m-1 rounded-3xl bg-slate-300 border-none text-slate-800 hover:bg-slate-400 text-lg "
             >
-              Artwork Types:
+              Artwork Types<CaretDown className="mt-1" weight="bold" />
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-64 p-2 shadow"
             >
               {ArtWorkTypes.data.map((type, index) => (
                 <div key={index} className="form-control">
