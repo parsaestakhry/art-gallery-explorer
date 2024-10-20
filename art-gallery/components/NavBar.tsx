@@ -30,7 +30,7 @@ export const NavBar = () => {
           </a>
           <ArtistsDropDown />
         </div>
-        <div className="flex-none">{/* <Drawer /> */}</div>
+        <div className="flex-none"><Drawer /></div>
       </div>
       <SearchCollapse />
     </div>
