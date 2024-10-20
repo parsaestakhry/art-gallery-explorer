@@ -11,6 +11,7 @@ export default function Page() {
   const searchParams = useSearchParams();
   const [artWork, setArtWork] = useState<ArtWorkType | null>();
   const [IIIFURL, setIIIFURL] = useState<string | null>(null);
+  
   //  reading the parameters using useEffect
   useEffect(() => {
     // assigning parameters
@@ -31,6 +32,10 @@ export default function Page() {
     };
     getArt();
   }, [pathname, searchParams]);
+
+  const addToFavorites = () => {
+    
+  }
 
   return (
     <>
@@ -90,7 +95,7 @@ export default function Page() {
               <li className="">Place of Origin : {artWork?.place_of_origin ? artWork.place_of_origin : "no records" }</li>
             </ul>
             <div className="card-actions justify-end">
-              <button className="btn btn-ghost text-xl">
+              <button onClick={() => addToFavorites()} className="btn btn-ghost text-xl">
                 Add to favorites <Bookmark size={30} weight="bold" />{" "}
               </button>
             </div>
