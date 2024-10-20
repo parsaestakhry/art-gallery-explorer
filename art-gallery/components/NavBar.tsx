@@ -1,7 +1,7 @@
 "use client";
 
 // importing the color pallete svg
-import { Palette } from "@phosphor-icons/react";
+import { Heart, Palette } from "@phosphor-icons/react";
 import React from "react";
 import { ArtistsDropDown } from "./ArtistsDropDown";
 import { SearchBox } from "./SearchBox";
@@ -23,14 +23,22 @@ export const NavBar = () => {
           </a>
           {/* artworks anchor link */}
           <a
-            className="md:btn md:text-xl md:text-slate-100 md:bg-inherit md:btn-ghost md:border-none md:underline  hidden  "
+            className="md:btn md:text-xl md:text-slate-100 md:bg-inherit md:btn-ghost md:border-none   hidden  "
             href="/artworks"
           >
             Artworks
           </a>
+          <a
+            className="md:btn md:text-xl md:text-slate-100 md:bg-inherit md:btn-ghost md:border-none   hidden  "
+            href="/favorites"
+          >
+            Favorites <Heart className="mt-1" weight="bold" />
+          </a>
           <ArtistsDropDown />
         </div>
-        <div className="flex-none"><Drawer /></div>
+        <div className="flex-none">
+          <Drawer />
+        </div>
       </div>
       <SearchCollapse />
     </div>

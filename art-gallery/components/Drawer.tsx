@@ -1,4 +1,4 @@
-import { Hamburger, List } from "@phosphor-icons/react";
+import { Hamburger, Heart, List } from "@phosphor-icons/react";
 
 export const Drawer = () => {
   return (
@@ -20,7 +20,7 @@ export const Drawer = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu  min-h-full w-80 p-4 space-y-5 text-slate-100 text-xl bg-[#113f67] underline ">
+          <ul className="menu  min-h-full w-80 p-4 space-y-5 text-slate-100 text-xl bg-[#113f67]  ">
             {/* Sidebar content here */}
             <li>
               <a href="/artworks" >
@@ -28,7 +28,7 @@ export const Drawer = () => {
               </a>
             </li>
             <li>
-              <a href="/favorites">Favorites</a>
+              <a href="/favorites">Favorites <Heart className="mt-1" weight="bold" /> </a>
             </li>
           </ul>
         </div>
