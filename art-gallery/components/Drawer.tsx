@@ -1,3 +1,4 @@
+import { Hamburger, List } from "@phosphor-icons/react";
 
 export const Drawer = () => {
   return (
@@ -8,9 +9,9 @@ export const Drawer = () => {
           {/* Page content here */}
           <label
             htmlFor="my-drawer-4"
-            className="drawer-button btn btn-primary z-50 "
+            className="drawer-button btn btn-ghost text-slate-100 z-50 "
           >
-            Open drawer
+            <List size={30} />
           </label>
         </div>
         <div className="drawer-side z-50  min-h-screen">
@@ -19,17 +20,19 @@ export const Drawer = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+          <ul className="menu  min-h-full w-80 p-4 space-y-5 text-slate-100 text-xl bg-[#113f67] underline ">
             {/* Sidebar content here */}
             <li>
-              <a>Sidebar Item 1</a>
+              <a href="/artworks" >
+                Artworks
+              </a>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+              <a href="/favorites">Favorites</a>
             </li>
           </ul>
         </div>
       </div>
     </div>
   );
-}
+};
