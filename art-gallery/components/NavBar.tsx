@@ -5,11 +5,12 @@ import { Palette } from "@phosphor-icons/react";
 import React from "react";
 import { ArtistsDropDown } from "./ArtistsDropDown";
 import { SearchBox } from "./SearchBox";
+import { Drawer } from "./Drawer";
 
 export const NavBar = () => {
   return (
     <div>
-      <SearchBox/>
+      <SearchBox />
       <div className="navbar bg-[#113f67] ">
         <div className="flex-1">
           <a href="/" className="btn btn-ghost text-xl text-slate-100">
@@ -29,21 +30,7 @@ export const NavBar = () => {
           <ArtistsDropDown />
         </div>
         <div className="flex-none">
-          <button className="btn btn-square btn-ghost sm:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-5 w-5 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
-              ></path>
-            </svg>
-          </button>
+          {/* <Drawer /> */}
         </div>
       </div>
     </div>
