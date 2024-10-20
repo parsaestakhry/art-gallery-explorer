@@ -3,6 +3,7 @@
 import { ArtWorkCard } from "@/components/ArtWorkCard";
 import { ArtWorkType, PaginationType } from "@/types/types";
 import { useEffect, useState } from "react";
+import ArtWorkTypes from "@/json/artwork-types.json";
 
 export default function Page() {
   // page number state
@@ -67,6 +68,33 @@ export default function Page() {
         <h2 className="text-4xl font-serif ">
           Take a look at our unique collection
         </h2>
+        <div className="my-10 flex justify-center">
+          <div className="dropdown dropdown-bottom">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn m-1 rounded-3xl bg-slate-300 border-none text-slate-800 hover:bg-slate-400 text-lg "
+            >
+              Artwork Type:
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            >
+              {ArtWorkTypes.data.map((type, index) => (
+                <div key={index} className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text text-slate-100 text-md">{type.title}</span>
+                    <input
+                      type="checkbox"
+                      className="checkbox"
+                    />
+                  </label>
+                </div>
+              ))}
+            </ul>
+          </div>
+        </div>
         <div className="flex flex-wrap mx-10 my-10 justify-center ">
           {artWorks?.map((art, index) => (
             <div key={index} className="carousel-item ">
