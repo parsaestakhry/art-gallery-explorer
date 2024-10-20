@@ -1,0 +1,144 @@
+{
+  "pagination": {
+    "total": 44,
+    "limit": 12,
+    "offset": 0,
+    "total_pages": 4,
+    "current_page": 1,
+    "next_url": "https://api.artic.edu/api/v1/artwork-types?page=2"
+  },
+  "data": [
+    {
+      "id": 1,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/1",
+      "title": "Painting",
+      "aat_id": 300033618,
+      "source_updated_at": "2019-05-08T19:03:58-05:00",
+      "updated_at": "2022-04-22T10:38:03-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 23,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/23",
+      "title": "Vessel",
+      "aat_id": 300193015,
+      "source_updated_at": "2019-05-08T19:03:58-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 22,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/22",
+      "title": "Basketry",
+      "aat_id": 300404578,
+      "source_updated_at": "2019-05-08T19:03:58-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 21,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/21",
+      "title": "Miniature room",
+      "aat_id": 300427608,
+      "source_updated_at": "2019-05-08T19:03:59-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 20,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/20",
+      "title": "Model",
+      "aat_id": 300047753,
+      "source_updated_at": "2019-05-08T19:03:57-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 19,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/19",
+      "title": "Architectural fragment",
+      "aat_id": 300190691,
+      "source_updated_at": "2019-05-08T19:03:57-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 18,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/18",
+      "title": "Print",
+      "aat_id": 300041273,
+      "source_updated_at": "2019-05-08T19:03:58-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 17,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/17",
+      "title": "Performance Arts",
+      "aat_id": 300121445,
+      "source_updated_at": "2019-05-08T19:03:57-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 16,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/16",
+      "title": "Installation",
+      "aat_id": 300047896,
+      "source_updated_at": "2019-05-08T19:03:59-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 15,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/15",
+      "title": "Mixed Media",
+      "aat_id": 300404586,
+      "source_updated_at": "2019-05-08T19:03:57-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 14,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/14",
+      "title": "Drawing and Watercolor",
+      "aat_id": 300033973,
+      "source_updated_at": "2019-05-08T19:03:57-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    },
+    {
+      "id": 12,
+      "api_model": "artwork-types",
+      "api_link": "https://api.artic.edu/api/v1/artwork-types/12",
+      "title": "Costume and Accessories",
+      "aat_id": 300209261,
+      "source_updated_at": "2019-05-08T19:03:58-05:00",
+      "updated_at": "2022-03-15T16:31:40-05:00",
+      "timestamp": "2024-10-20T09:19:27-05:00"
+    }
+  ],
+  "info": {
+    "license_text": "The data in this response is licensed under a Creative Commons Zero (CC0) 1.0 designation and the Terms and Conditions of artic.edu.",
+    "license_links": [
+      "https://creativecommons.org/publicdomain/zero/1.0/",
+      "https://www.artic.edu/terms"
+    ],
+    "version": "1.10"
+  },
+  "config": {
+    "iiif_url": "https://www.artic.edu/iiif/2",
+    "website_url": "http://www.artic.edu"
+  }
+}
