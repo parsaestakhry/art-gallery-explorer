@@ -6,6 +6,7 @@ import { ArtWorkType } from "@/types/types";
 import { Bookmark } from "@phosphor-icons/react";
 import { FavoritesContext } from "@/context/FavoritesContext";
 import { toast, ToastContainer } from "react-toastify";
+import { ArtWorkCard } from "@/components/ArtWorkCard";
 export default function Page() {
   // reading the query parameters
   const pathname = usePathname();
@@ -16,7 +17,8 @@ export default function Page() {
   const [IIIFURL, setIIIFURL] = useState<string | null>(null);
   // using the context
   const favoritesContext = useContext(FavoritesContext);
-
+  // artwork state
+  const [artWorks, setArtWorks] = useState<ArtWorkType[] | null>([]);
   //  reading the parameters using useEffect
   useEffect(() => {
     // assigning parameters
@@ -35,7 +37,25 @@ export default function Page() {
       setArtWork(data.data);
       setIIIFURL(data.config.iiif_url);
     };
+    const viewMore = async () => {
+      const response = await fetch(
+        "https://api.artic.edu/api/v1/artworks?page=2&limit=10",
+        {
+          method: "GET",
+        }
+      );
+
+      // passing it to a data variable
+      const data = await response.json();
+      // logging the response
+      //console.log(data);
+      // setting the data in the state
+      setArtWorks(data.data);
+      // setting the iiif url
+      setIIIFURL(data.config.iiif_url);
+    };
     getArt();
+    viewMore();
   }, [pathname, searchParams]);
 
   const addToFavorites = () => {
@@ -46,6 +66,8 @@ export default function Page() {
     });
   };
 
+  // getting from the same artist
+  
   //console.log(favoritesContext?.artworks)
 
   return (
@@ -130,6 +152,28 @@ export default function Page() {
               </button>
             </div>
           </div>
+        </div>
+        {/* similar art carousel */}
+                  <h2 className="text-center my-10 text-4xl font-serif text-slate-100" >View More!</h2>
+        <div className="carousel carousel-center bg-inherit rounded-box max-w-screen space-x-4 py-10 px-10 flex ">
+          
+          {/* mapping through artworks array */}
+          {artWorks?.map((art, index) => (
+            <div key={index} className="carousel-item">
+              {/* passing props to each card  */}
+              <ArtWorkCard
+                image_id={art.image_id}
+                artist_display={art.artist_display}
+                artist_title={art.artist_title}
+                artwork_type_title={art.artwork_type_title}
+                title={art.title}
+                date_display={art.date_display}
+                iiif_url={IIIFURL}
+                image_url={`${IIIFURL}/${art.image_id}/full/843,/0/default.jpg`}
+                id={art.id}
+              />
+            </div>
+          ))}
         </div>
         <ToastContainer />
       </div>
