@@ -4,6 +4,7 @@ import { ArtWorkCard } from "@/components/ArtWorkCard";
 import { ArtWorkType, PaginationType } from "@/types/types";
 import { useEffect, useState } from "react";
 import ArtWorkTypes from "@/json/artwork-types.json";
+import AgentTypes from "@/json/agent-types.json";
 import { CaretDown } from "@phosphor-icons/react";
 
 export default function Page() {
@@ -16,14 +17,19 @@ export default function Page() {
   // iiifurl state
   const [IIIFURL, setIIIFURL] = useState<string | null>(null);
   // artwork type filter
-  const [artWorkTypes, setArtWorkTypes] = useState<string[]| null>([])
+  const [artWorkTypes, setArtWorkTypes] = useState<string[] | null>([]);
+  // agent types
+  const [agentTypes, setAgentTypes] = useState<string[] | null>([]);
   // handling artwork types checkbox change
-  const handleArtWorkTypeChange= (type:string) => {
-    setArtWorkTypes((prevArtWorkTypes) => [...prevArtWorkTypes!, type])
+  const handleArtWorkTypeChange = (type: string) => {
+    setArtWorkTypes((prevArtWorkTypes) => [...prevArtWorkTypes!, type]);
+  };
+  const handeAgentTypeChange=(type:string) => {
+    setAgentTypes((prevAgentTypes) => [...prevAgentTypes!, type] )
   }
 
   //console.log(artWorkTypes)
-  
+
   // fetching artworks based on the pagination
   const getArtWorks = async () => {
     const response = await fetch(
@@ -50,11 +56,8 @@ export default function Page() {
   // calling function using useEffect
   useEffect(() => {
     getArtWorks();
-  }, [pageNumber,artWorkTypes]);
+  }, [pageNumber, artWorkTypes]);
   //console.log(IIIFURL)
-
-
-  
 
   return (
     <>
@@ -95,7 +98,8 @@ export default function Page() {
               role="button"
               className="btn m-1 rounded-3xl bg-slate-300 border-none text-slate-800 hover:bg-slate-400 text-lg "
             >
-              Artwork Types<CaretDown className="mt-1" weight="bold" />
+              Artwork Types
+              <CaretDown className="mt-1" weight="bold" />
             </div>
             <ul
               tabIndex={0}
@@ -104,7 +108,9 @@ export default function Page() {
               {ArtWorkTypes.data.map((type, index) => (
                 <div key={index} className="form-control">
                   <label className="label cursor-pointer">
-                    <span className="label-text text-slate-100 text-md">{type.title}</span>
+                    <span className="label-text text-slate-100 text-md">
+                      {type.title}
+                    </span>
                     <input
                       onChange={() => handleArtWorkTypeChange(type.title)}
                       type="checkbox"
@@ -115,7 +121,38 @@ export default function Page() {
               ))}
             </ul>
           </div>
+          {/* agent types  */}
+          {/* <div className="dropdown dropdown-bottom">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn m-1 rounded-3xl bg-slate-300 border-none text-slate-800 hover:bg-slate-400 text-lg "
+            >
+              Agent Types
+              <CaretDown className="mt-1" weight="bold" />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-64 p-2 shadow"
+            >
+              {AgentTypes.data.map((type, index) => (
+                <div key={index} className="form-control">
+                  <label className="label cursor-pointer">
+                    <span className="label-text text-slate-100 text-md">
+                      {type.title}
+                    </span>
+                    <input
+                      onChange={() => handeAgentTypeChange(type.title)}
+                      type="checkbox"
+                      className="checkbox"
+                    />
+                  </label>
+                </div>
+              ))}
+            </ul>
+          </div> */}
         </div>
+        {/* artwork cards */}
         <div className="flex flex-wrap mx-10 my-10 justify-center ">
           {artWorks?.map((art, index) => (
             <div key={index} className="carousel-item ">
